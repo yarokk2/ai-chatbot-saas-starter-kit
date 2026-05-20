@@ -165,7 +165,9 @@ function AuditLogsContent() {
                 <div className="flex items-center gap-4">
                   <span
                     className={`rounded-full px-3 py-1 text-xs font-semibold ${
-                      severityStyles[log.severity]
+                      severityStyles[
+                        log.severity as keyof typeof severityStyles
+                      ]
                     }`}
                   >
                     {log.severity}

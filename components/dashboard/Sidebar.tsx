@@ -48,7 +48,7 @@ export default function Sidebar() {
       {/* User Profile */}
       <div className="p-6 border-t border-white/10 flex items-center justify-between">
         <span className="text-zinc-400 text-sm">Account</span>
-        <UserButton afterSignOutUrl="/" />
+        <UserButton />
       </div>
     </aside>
   );
