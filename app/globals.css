@@ -1,26 +1,132 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0a0a;
+  --foreground: #ffffff;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+/* ========================================
+   Aurora Enterprise Dark Theme
+======================================== */
+
+@theme inline {
+  --aurora-bg-light: #f7f7fb;
+  --aurora-bg-dark: #0b1020;
+  --aurora-surface-dark: rgba(255, 255, 255, 0.04);
+  --aurora-border-dark: rgba(255, 255, 255, 0.08);
+}
+
+html {
+  background: #f7f7fb;
+}
+
+html.dark {
+  background:
+    radial-gradient(circle at top left, rgba(59, 130, 246, 0.12), transparent 40%),
+    radial-gradient(circle at top right, rgba(168, 85, 247, 0.10), transparent 35%),
+    radial-gradient(circle at bottom center, rgba(236, 72, 153, 0.08), transparent 40%),
+    #0b1020;
+}
+
+body {
+  min-height: 100vh;
+}
+
+html.dark body {
+  color: #f8fafc;
+  background: transparent;
+}
+
+/* Optional custom utility classes */
+.aurora-card-dark {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(24px);
+}
+
+.aurora-glow-dark {
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.35),
+    0 0 40px rgba(59, 130, 246, 0.08),
+    0 0 60px rgba(168, 85, 247, 0.06);
+}
+
+/* ========================================
+   Universal Aurora UI Classes
+======================================== */
+
+/* Premium card used across all dashboard pages */
+.aurora-card {
+  @apply rounded-3xl border border-gray-100 bg-white p-8 shadow-sm
+         dark:border-white/10
+         dark:bg-slate-900/85
+         dark:backdrop-blur-2xl
+         dark:text-white
+         dark:shadow-[0_20px_60px_rgba(0,0,0,0.45)];
+}
+
+/* Secondary card surface */
+.aurora-surface {
+  @apply rounded-2xl bg-gray-50
+         dark:bg-slate-800/70
+         dark:border dark:border-white/5;
+}
+
+/* Main page titles */
+.aurora-title {
+  @apply text-2xl font-bold text-gray-900
+         dark:text-white;
+}
+
+/* Large page headings */
+.aurora-page-title {
+  @apply text-3xl font-bold text-gray-900
+         dark:text-white;
+}
+
+/* Secondary descriptive text */
+.aurora-text {
+  @apply text-gray-500
+         dark:text-gray-400;
+}
+
+/* Primary buttons */
+.aurora-button {
+  @apply rounded-2xl bg-gradient-to-r from-blue-500 to-purple-500
+         px-6 py-3 font-semibold text-white shadow-lg shadow-purple-200
+         transition-all duration-300 hover:scale-[1.02]
+         dark:shadow-purple-900/30;
+}
+
+/* Input fields */
+.aurora-input {
+  @apply w-full rounded-2xl border border-gray-200 bg-white
+         px-4 py-3 text-gray-900 outline-none
+         focus:border-purple-400
+         dark:border-white/10
+         dark:bg-slate-900/80
+         dark:text-white
+         dark:placeholder:text-slate-400;
+}
+
+/* Status badges */
+.aurora-badge {
+  @apply inline-flex items-center rounded-full
+         bg-purple-50 px-3 py-1 text-xs font-semibold text-purple-700
+         dark:bg-purple-500/10 dark:text-purple-300;
+}
+
+/* Soft hover cards */
+.aurora-hover {
+  @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-xl;
 }
