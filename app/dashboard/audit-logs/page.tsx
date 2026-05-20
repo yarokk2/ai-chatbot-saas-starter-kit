@@ -7,7 +7,7 @@ import ToolsPanel from "@/components/aurora/ToolsPanel";
 import { exportToCSV } from "@/lib/export";
 import { notify } from "@/lib/notifications";
 import { exportToPDF } from "@/lib/export-pdf";
-import { getCurrentOrganizationId } from "@/lib/tenant";
+
 
 function AuditLogsContent() {
   const logs = [

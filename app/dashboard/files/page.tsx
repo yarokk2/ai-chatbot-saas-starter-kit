@@ -3,7 +3,6 @@ import AuroraSidebar from "@/components/aurora/AuroraSidebar";
 import ConversationsPanel from "@/components/aurora/ConversationsPanel";
 import ToolsPanel from "@/components/aurora/ToolsPanel";
 import UploadDropzone from "@/components/upload/UploadDropzone";
-import { notify } from "@/lib/notifications";
 import { getCurrentOrganizationId } from "@/lib/tenant";
 
 

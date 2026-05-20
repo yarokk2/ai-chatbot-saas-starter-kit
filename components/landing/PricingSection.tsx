@@ -70,7 +70,7 @@ export default function PricingSection() {
       const data = await response.json();
 
       if (data.url) {
-        window.location.href = data.url;
+        window.location.assign(data.url);
       } else {
         alert("Failed to create checkout session.");
       }
