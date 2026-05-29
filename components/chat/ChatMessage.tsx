@@ -1,3 +1,6 @@
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+
 interface ChatMessageProps {
   role: "user" | "assistant";
   content: string;
@@ -18,9 +21,11 @@ export default function ChatMessage({
             : "bg-white/5 border border-white/10 text-white"
         }`}
       >
-        <p className="leading-relaxed whitespace-pre-wrap">
-          {content}
-        </p>
+        <div className="prose prose-invert max-w-none prose-pre:bg-black/40 prose-pre:border prose-pre:border-white/10 prose-code:text-cyan-300">
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>
+            {content}
+          </ReactMarkdown>
+        </div>
       </div>
     </div>
   );
