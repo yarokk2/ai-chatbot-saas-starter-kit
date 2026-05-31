@@ -71,7 +71,7 @@ export default function ChatWorkspace() {
         setMessages(parsed[0].messages);
       }
     } else {
-      const initialConversation = {
+      const initialConversation: Conversation = {
         id: crypto.randomUUID(),
         title: "New Chat",
         messages: [
@@ -309,7 +309,7 @@ export default function ChatWorkspace() {
       <div className="border-b border-gray-100 p-4">
         <button
           onClick={() => {
-            const newConversation = {
+            const newConversation: Conversation = {
               id: crypto.randomUUID(),
               title: "New Chat",
               messages: [
