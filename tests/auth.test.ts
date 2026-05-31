@@ -1,14 +1,14 @@
 import { test, expect } from "@playwright/test";
 
 test.describe("Authentication", () => {
-  test.skip("should redirect unauthenticated users to sign-in", async ({ page }) => {
-    await page.goto("/dashboard/chat");
-    await page.waitForLoadState("networkidle");
-    expect(page.url()).not.toContain("/dashboard/chat");
-  });
-
-  // остальные тесты...
-});
+  test.skip(
+    "should redirect unauthenticated users to sign-in",
+    async ({ page }) => {
+      await page.goto("/dashboard/chat");
+      await page.waitForLoadState("networkidle");
+      expect(page.url()).not.toContain("/dashboard/chat");
+    }
+  );
 
   test("should display sign-in page", async ({ page }) => {
     await page.goto("/sign-in");
