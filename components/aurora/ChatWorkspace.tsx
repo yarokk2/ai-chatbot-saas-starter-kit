@@ -1,4 +1,5 @@
 "use client";
+/* eslint-disable react-hooks/set-state-in-effect */
 import { Conversation } from "@/types/chat";
 import { useEffect, useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
@@ -18,7 +19,13 @@ export default function ChatWorkspace() {
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  const [messages, setMessages] = useState<any[]>([
+  type ChatMessage = {
+    role: "user" | "assistant";
+    content: string;
+  };
+
+  const [messages, setMessages] =
+    useState<ChatMessage[]>([
     {
       role: "assistant",
       content:

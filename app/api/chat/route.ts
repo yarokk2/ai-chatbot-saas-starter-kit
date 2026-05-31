@@ -79,7 +79,10 @@ export async function POST(request: NextRequest) {
 
     ${documents
       .map(
-        (doc: any) =>
+        (doc: {
+          name: string;
+          content: string;
+        }) =>
           `Document: ${doc.name}
 
     ${doc.content}`
