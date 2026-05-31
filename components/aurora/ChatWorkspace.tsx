@@ -156,7 +156,7 @@ export default function ChatWorkspace() {
     if ((!trimmed && uploadedFiles.length === 0) || isLoading)
       return;
 
-    const userMessage = {
+    const userMessage: ChatMessage = {
       role: "user",
       content:
         uploadedFiles.length > 0
