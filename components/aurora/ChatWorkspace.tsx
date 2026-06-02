@@ -315,9 +315,21 @@ export default function ChatWorkspace() {
       {/* Sidebar Header */}
       <div className="border-b border-gray-100 p-4">
         <button
-          onClick={() => {
+          onClick={async () => {
+              const response = await fetch(
+                "/api/conversations",
+                {
+                  method: "POST",
+                }
+              );
+
+              const result = await response.json();
+
+              if (!result.success) {
+                return;
+              }
             const newConversation: Conversation = {
-              id: crypto.randomUUID(),
+              id: result.conversation.id,
               title: "New Chat",
               messages: [
                 {
