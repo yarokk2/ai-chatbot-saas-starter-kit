@@ -169,6 +169,20 @@ export default function ChatWorkspace() {
           : trimmed,
     };
 
+    if (activeConversationId) {
+      await fetch("/api/messages", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          conversationId: activeConversationId,
+          role: "user",
+          content: userMessage.content,
+        }),
+      });
+    }
+
     const activeConversation = conversations.find(
       (conv) => conv.id === activeConversationId
     );
